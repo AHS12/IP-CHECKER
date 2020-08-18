@@ -44,6 +44,7 @@
         <div class="row text-center text-lg-left" id="content">
            
         </div>
+        <img src="" alt="" height="200" width="200">
 
     </div>
 
@@ -75,7 +76,7 @@
 
             // get the API result via jQuery.ajax
             $.ajax({
-                url: 'http://api.ipstack.com/' + ip + '?access_key=' + access_key,
+                url: 'http://api.ipstack.com/' + ip + '?access_key=' + access_key+"& hostname = 1",
                 dataType: 'jsonp',
                 success: function (json) {
                     console.log(json);
@@ -105,6 +106,8 @@
 
                     html += '<div class="col-md-2"><p><b>latitude:</b></p></div>';
                     html += '<div class="col-md-10"><p>'+json.latitude+'</p></div>';
+
+                    html+='<div><img src="'+json.location.country_flag+'" alt="" height="200" width="200"></div>'
 
                     //console.log(html);
 
